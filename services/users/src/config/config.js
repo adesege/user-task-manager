@@ -1,4 +1,5 @@
 require('dotenv').config({ path: `${__dirname}/../../.env` });
+const pg = require('pg');
 
 module.exports = {
   development: {
@@ -13,7 +14,8 @@ module.exports = {
   },
   production: {
     url: process.env.DATABASE_URL,
-    dialect: 'postgres',
+    dialect: 'pg',
+    dialectModule: pg,
     operatorsAliases: 0,
     ssl: true,
     dialectOptions: {

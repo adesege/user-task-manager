@@ -1,7 +1,7 @@
 import express from 'express';
-import UserController from './controllers/user.controller';
-import { asyncHandler } from './utils/async-handler';
-import userValidation from './validations/user.validation';
+import UserController from '../controllers/user.controller';
+import { asyncHandler } from '../utils/async-handler';
+import userValidation from '../validations/user.validation';
 
 const Router = express.Router();
 

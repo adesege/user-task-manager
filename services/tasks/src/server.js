@@ -12,4 +12,8 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use('/api/users', userTaskRoutes);
 
-app.listen(port, () => console.log('App started on port %d', port));
+if (!process.env.NOW_REGION) {
+  app.listen(port, () => console.log('App started on port %d', port));
+}
+
+export default app;
