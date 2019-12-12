@@ -11,11 +11,11 @@ const app = express();
 app.use(cors());
 
 app.use('/api/users/**/tasks', proxy({
-  ws: true,
+  changeOrigin: true,
   target: process.env.TASK_SERVICE_HOST,
 }));
 app.use('/api/users', proxy({
-  ws: true,
+  changeOrigin: true,
   target: process.env.USER_SERVICE_HOST,
 }));
 
