@@ -1,0 +1,48 @@
+{
+  "builds": [
+    {
+      "src": "services/gateway/**",
+      "use": "@now/node"
+    },
+    {
+      "src": "services/tasks/**",
+      "use": "@now/node"
+    },
+    {
+      "src": "services/users/**",
+      "use": "@now/node"
+    },
+    { "src": "client/package.json", 
+      "use": "@now/static-build",
+      "config": { "distDir": "dist" } 
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/users/(.*)/tasks/(.*)?",
+      "dest": "/services/tasks/src/server.js"
+    },
+    {
+      "src": "/api/users/(.*)?",
+      "dest": "/services/users/src/server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/client/$1"
+    }
+  ],
+  "env": {
+    "DATABASE_URL": "@database_url",
+    "USER_SERVICE_HOST": "@user_service_host",
+    "TASK_SERVICE_HOST": "@task_service_host",
+    "VUE_APP_API_GATEWAY_HOST": "@api_gateway_host"
+  },
+  "build": {
+    "env": {
+      "DATABASE_URL": "@database_url",
+      "USER_SERVICE_HOST": "@user_service_host",
+      "TASK_SERVICE_HOST": "@task_service_host",
+      "VUE_APP_API_GATEWAY_HOST": "@api_gateway_host"
+    }
+  }
+}

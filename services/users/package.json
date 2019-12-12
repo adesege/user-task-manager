@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon --exec babel-node -r node_modules/dotenv/config src/server.js",
     "build": "babel src  --out-dir dist",
-    "start": "pm2-runtime start ecosystem.config.js --env production",
+    "start": "node dist/server.js",
     "migrate:up": "sequelize db:migrate",
     "migrate:down": "sequelize db:migrate:undo"
   },
@@ -21,7 +21,6 @@
     "nodemon": "^2.0.1",
     "pg": "^7.14.0",
     "pg-hstore": "^2.3.3",
-    "pm2": "^4.2.1",
     "sequelize": "^5.21.2",
     "sequelize-cli": "^5.5.1"
   },
