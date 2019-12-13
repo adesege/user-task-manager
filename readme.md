@@ -26,7 +26,7 @@ Manage Tasks and Users easily
 
 ## Docker - Recommended
 
-> Ensure you have [Docker]([Docker](https://www.docker.com/products/docker-desktop)) and [Docker-compose](https://docs.docker.com/compose/install/) already installed on your computer.
+> Ensure you have [Docker](https://www.docker.com/products/docker-desktop) and [Docker-compose](https://docs.docker.com/compose/install/) already installed on your computer.
 
 - Run `git clone https://github.com/adesege/user-task-manager.git` to clone the repository and `cd user-task-manager`.
 - Clone and rename each `.env-sample` files in `./.env-sample`, `./services/<service name>/.env-sample` and `./client/.env-sample` to `.env`. Fill in the values appropriately.
@@ -58,12 +58,13 @@ Manage Tasks and Users easily
 
 ## Heroku
 
-> Heroku requires that for a nodejs application, the `package*.json` or `yarn.lock` must be in the root directory. However, because this application is a monorepo with no `package*.json` in the root directory, we need to use a buildpack to deploy our application to each Heroku service.
+> Heroku requires that for a nodejs application, the `package*.json` or `yarn.lock` must be in the root directory. However, because this application is a monorepo with no `package*.json` in the root directory, we need to use a buildpack to deploy each service to  Heroku.
+> 
 > The steps below outlines how to deploy this application on Heroku.
 
 > Create an account on [Heroku](https://heroku.com) if you haven't done so. Also ensure you have the [Heroku-cli](https://devcenter.heroku.com/articles/heroku-cli) installed on your computer.
 
-You will need to run the following command for each services in `./services` directory.
+You will need to run the following command for each services in `./services`  and `./client` directories.
 
 ```bash
 $ heroku create <service/app name>
@@ -87,6 +88,13 @@ $ heroku git:remote -a <app name>
 $ git push origin master
 # To deploy the service to Heroku.
 ```
+
+## Netlify
+
+To deploy the frontend with Netlify;
+- Create an account or login to your account on Netlify.
+- Connect Github with Netlify and choose the repository you want to deploy from.
+- Once the application has been successfully deployed, visit the auto-generated url to access the frontend.
 
 # Author
 
