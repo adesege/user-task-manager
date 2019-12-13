@@ -2,7 +2,9 @@
   <v-app>
     <v-app-bar app color="primary">
       <v-app-bar-nav-icon width="auto" text>
-        <app-logo></app-logo>
+        <a href="https://bunnystudio.com/" target="_blank">
+          <app-logo></app-logo>
+        </a>
       </v-app-bar-nav-icon>
     </v-app-bar>
     <v-content>

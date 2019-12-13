@@ -31,7 +31,7 @@
             />
           </v-col>
         </v-row>
-        <v-alert v-else-if="!getTasks.length"
+        <v-alert v-else-if="!getTasks.length && !getIsLoading"
           >{{ getUser.name }} does not have an assigned task.</v-alert
         >
         <div class="text-center" v-else>
