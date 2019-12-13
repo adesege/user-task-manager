@@ -12,8 +12,8 @@ export default {
         where: {
           name: sequelize.where(
             sequelize.fn('LOWER', sequelize.col('name')),
-            'LIKE',
-            `%${name.toLowerCase()}%`,
+            '=',
+            name.toLowerCase(),
           ),
         },
       });
@@ -35,8 +35,8 @@ export default {
   },
   async getUser(req, res) {
     const { id } = req.params;
-    const page = req.query.page || 1;
-    const limit = req.query.limit || 20;
+    const page = parseInt(req.query.page, 10) || 1;
+    const limit = parseInt(req.query.limit, 10) || 20;
     const offset = (page - 1) * limit;
     const whereClause = id ? { id } : undefined;
     try {
@@ -44,6 +44,7 @@ export default {
         where: whereClause,
         limit,
         offset,
+        order: [['updatedAt', 'DESC']],
       });
 
       if (id && !result.rows.length) {

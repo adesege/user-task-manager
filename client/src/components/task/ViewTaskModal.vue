@@ -1,9 +1,9 @@
 <template>
   <v-dialog v-model="openModal" width="960">
     <v-card>
-      <v-card-title class="headline grey lighten-2" primary-title>
-        {{ getUser.name }}'s tasks
-      </v-card-title>
+      <v-card-title class="headline grey lighten-2" primary-title
+        >{{ getUser.name }}'s tasks</v-card-title
+      >
 
       <v-card-text>
         <task-modal
@@ -31,9 +31,9 @@
             />
           </v-col>
         </v-row>
-        <v-alert v-else-if="!getTasks.length">
-          {{ getUser.name }} does not have an assigned task.
-        </v-alert>
+        <v-alert v-else-if="!getTasks.length"
+          >{{ getUser.name }} does not have an assigned task.</v-alert
+        >
         <div class="text-center" v-else>
           <app-progress-circular color="primary" />
         </div>

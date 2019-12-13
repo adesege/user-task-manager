@@ -15,10 +15,10 @@ const mutations = {
     state.isLoading = value;
   },
   SET_IS_SAVING_TASK(state, value) {
-    state.isSavingUser = value;
+    state.isSavingTask = value;
   },
   SET_IS_DELETING_TASK(state, value) {
-    state.isDeletingUser = value;
+    state.isDeletingTask = value;
   },
   SET_SAVE_TASK(store, payload) {
     const { actionType, ...newPayload } = payload;
@@ -124,11 +124,12 @@ const actions = {
   },
   async deleteTask(context, payload) {
     try {
-      context.commit("SET_IS_DELETING_TASK", false);
+      context.commit("SET_IS_DELETING_TASK", true);
       await this._vm.$http.delete(
         `/users/${payload.userId}/tasks/${payload.taskId}`
       );
       context.commit("REMOVE_TASK", payload);
+      context.commit("SET_IS_DELETING_TASK", false);
       context.dispatch(
         "notification/addNotification",
         {

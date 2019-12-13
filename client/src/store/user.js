@@ -56,11 +56,11 @@ const getters = {
 };
 
 const actions = {
-  async getUsers(context) {
+  async getUsers(context, option) {
     try {
       context.commit("SET_IS_LOADING", true);
       const result = await this._vm.$http
-        .get("/users")
+        .get("/users", { params: (option || {}).query })
         .then(response => response.data.data)
         .catch(error => error.response);
 
@@ -122,7 +122,7 @@ const actions = {
   },
   async deleteUser(context, payload) {
     try {
-      context.commit("SET_IS_DELETING_USER", false);
+      context.commit("SET_IS_DELETING_USER", true);
       await this._vm.$http.delete(`/users/${payload.userId}`);
       context.commit("REMOVE_USER", payload);
       context.dispatch(

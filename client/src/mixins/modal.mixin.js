@@ -6,7 +6,7 @@ export default {
     }
   },
   computed: {
-        openModal: {
+    openModal: {
       get() {
         return this.value;
       },
@@ -14,12 +14,10 @@ export default {
         this.onToggleModal(value);
       }
     }
-
   },
   methods: {
-        onToggleModal(value) {
+    onToggleModal(value) {
       this.$emit("input", value);
-    },
-
+    }
   }
-}
+};

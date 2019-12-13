@@ -1,12 +1,10 @@
 <template>
-  <v-card>
+  <v-card height="100%">
     <v-card-text>
       <div :class="['caption', getStateClass]">
         {{ item.state }} - {{ dateWithoutYear(item.updatedAt) }}
       </div>
-      <div class="text--primary">
-        {{ item.description }}
-      </div>
+      <div class="text--primary">{{ item.description }}</div>
     </v-card-text>
     <v-card-actions>
       <v-btn text size="16" icon color="primary" @click="onOpenEditTaskModal">

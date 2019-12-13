@@ -1,0 +1,9 @@
+{
+  "eslint.workingDirectories": [
+    "./client",
+    "./services/users",
+    "./services/tasks",
+    "./services/gateway",
+  ],
+  "vetur.validation.template": false
+}

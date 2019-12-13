@@ -1,15 +1,12 @@
 import express from 'express';
-import UserController from '../controllers/user.controller';
-import { asyncHandler } from '../utils/async-handler';
+import userController from '../controllers/user.controller';
 import userValidation from '../validations/user.validation';
 
 const Router = express.Router();
 
-Router.post('/', userValidation, asyncHandler(UserController.createUser));
-Router.get('/:id?', asyncHandler(UserController.getUser));
-Router.put('/:id',
-  userValidation,
-  asyncHandler(UserController.updateUser));
-Router.delete('/:id', asyncHandler(UserController.deleteUser));
+Router.post('/', userValidation, userController.createUser);
+Router.get('/:id?', userController.getUser);
+Router.put('/:id', userValidation, userController.updateUser);
+Router.delete('/:id', userController.deleteUser);
 
 export default Router;

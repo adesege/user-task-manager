@@ -32,23 +32,25 @@
           </v-toolbar>
         </template>
         <template v-slot:item.name="{ item }">
-          <span class="text-cursor" @click="onOpenViewTaskModal(item.id)">{{
-            item.name
-          }}</span>
+          <span
+            class="text-cursor primary--text"
+            @click="onOpenViewTaskModal(item.id)"
+            >{{ item.name }}</span
+          >
         </template>
         <template v-slot:item.createdAt="{ item }">
           {{ dateWithoutYear(item.createdAt) }}
         </template>
         <template v-slot:item.actions="{ item }">
-          <v-btn text icon @click="onOpenViewTaskModal(item.id)"
-            ><v-icon>mdi-format-list-checks</v-icon></v-btn
-          >
-          <v-btn text icon @click="onOpenEditUser(item.id)"
-            ><v-icon>mdi-account-edit</v-icon></v-btn
-          >
-          <v-btn text icon @click="onOpenDeleteAlert(item.id)"
-            ><v-icon>mdi-trash-can</v-icon></v-btn
-          >
+          <v-btn text icon @click="onOpenViewTaskModal(item.id)">
+            <v-icon>mdi-format-list-checks</v-icon>
+          </v-btn>
+          <v-btn text icon @click="onOpenEditUser(item.id)">
+            <v-icon>mdi-account-edit</v-icon>
+          </v-btn>
+          <v-btn text icon @click="onOpenDeleteAlert(item.id)">
+            <v-icon>mdi-trash-can</v-icon>
+          </v-btn>
         </template>
       </v-data-table>
     </v-flex>

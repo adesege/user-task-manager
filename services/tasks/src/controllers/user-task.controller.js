@@ -40,14 +40,15 @@ export default {
   },
   async getTask(req, res) {
     const { userId } = req.params;
-    const page = req.query.page || 1;
-    const limit = req.query.limit || 20;
+    const page = parseInt(req.query.page, 10) || 1;
+    const limit = parseInt(req.query.limit, 10) || 20;
     const offset = (page - 1) * limit;
     try {
       const result = await taskRepository.findAndCountAll({
         where: { userId },
         limit,
         offset,
+        order: [['updatedAt', 'DESC']],
       });
 
       if (!result.rows.length) {
