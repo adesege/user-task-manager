@@ -90,6 +90,7 @@ $ heroku git:remote -a <app name>
 
 $ git push origin master
 # To deploy the service to Heroku.
+# Alternatively, you can enable automatic deploy from the Heroku application.
 ```
 
 ## Netlify
