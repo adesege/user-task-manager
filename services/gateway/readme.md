@@ -1,4 +1,4 @@
-# Users Service
+# API Gateway Service
 
 # Installing
 

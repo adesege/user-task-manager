@@ -1,4 +1,4 @@
-# client
+# User Task Manager Frontend
 
 ## Project setup
 ```
